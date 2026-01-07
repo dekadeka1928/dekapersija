@@ -40,12 +40,13 @@
   </div>
 </nav>
 
+<br>
+
 <!-- CONTACT CONTENT -->
- 
- <br>
- 
 <div class="container my-5">
   <div class="row">
+
+    <!-- FORM -->
     <div class="col-md-6 mb-4">
       <div class="card shadow p-4">
         <h4 class="text-silver">Contact Form</h4>
@@ -65,29 +66,58 @@
           <button class="btn btn-dark">Kirim</button>
         </form>
       </div>
-      </center>
     </div>
-  
 
-    <br>
-    <center>
+    <!-- SOCIAL MEDIA -->
     <div class="col-md-6 mb-4">
-      <div class="card shadow p-4">
+      <div class="card shadow p-4 text-center">
         <h4 class="text-silver">Social Media</h4>
         <p><b>Instagram:</b> @persija</p>
         <p><b>Facebook:</b> persija</p>
         <p><b>Website:</b> https://persija.id</p>
+
+        <hr>
+
+        <!-- PENENTUAN WAKTU -->
+        <p id="waktuSekarang" class="fw-bold"></p>
+        <p id="salamWaktu"></p>
       </div>
     </div>
+
   </div>
 </div>
-</center>
- 
 
 <footer class="bg-silver text-white text-center p-3">
   ©️ Anggardeka | 01SIFP005 | 251011700284
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JAVASCRIPT PENENTUAN WAKTU -->
+<script>
+  function updateWaktu() {
+    const waktu = new Date();
+    const jam = waktu.getHours();
+    let salam;
+
+    if (jam >= 5 && jam < 12) {
+      salam = "Selamat Pagi 🌅";
+    } else if (jam >= 12 && jam < 15) {
+      salam = "Selamat Siang ☀️";
+    } else if (jam >= 15 && jam < 18) {
+      salam = "Selamat Sore 🌇";
+    } else {
+      salam = "Selamat Malam 🌙";
+    }
+
+    document.getElementById("salamWaktu").innerHTML = salam;
+    document.getElementById("waktuSekarang").innerHTML =
+      "Waktu sekarang: " + waktu.toLocaleTimeString();
+  }
+
+  updateWaktu();
+  setInterval(updateWaktu, 1000);
+</script>
+
 </body>
 </html>
